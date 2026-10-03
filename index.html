@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Cutieee 💗</title>
+
+<style>
+body{
+margin:0;
+font-family:Georgia,serif;
+background:linear-gradient(135deg,#ffe4ec,#fff5f8,#f9e6ff);
+color:#653b50;
+text-align:center;
+}
+
+.page{
+display:none;
+min-height:100vh;
+padding:40px 22px;
+box-sizing:border-box;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.active{display:flex;}
+
+h1{font-size:40px;}
+h2{font-size:28px;}
+
+.card{
+background:#ffffffc9;
+padding:28px;
+border-radius:25px;
+max-width:380px;
+box-shadow:0 10px 30px #b76b851f;
+line-height:1.7;
+}
+
+button{
+background:#d96791;
+border:0;
+color:white;
+padding:15px 25px;
+border-radius:30px;
+font-size:16px;
+margin-top:25px;
+}
+
+.heart{
+font-size:65px;
+animation:beat 1.2s infinite;
+}
+
+@keyframes beat{
+50%{transform:scale(1.2);}
+}
+
+.reason{
+background:#ffffffc9;
+padding:17px;
+margin:8px;
+border-radius:18px;
+width:280px;
+}
+
+.letter{
+background:#fffafc;
+padding:28px;
+border-radius:15px;
+max-width:370px;
+text-align:left;
+line-height:1.8;
+box-shadow:0 8px 25px #9b55751f;
+}
+
+.signature{
+text-align:right;
+margin-top:20px;
+}
+
+.small{
+opacity:.65;
+font-family:Arial;
+font-size:13px;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+<div class="page active" id="p1">
+
+<div class="heart">💗</div>
+
+<h1>Hey Cutieee...</h1>
+
+<p>Avniee made something for you 👀</p>
+
+<p>
+It's tiny...<br>
+but it's made especially for you. 🫶🏻
+</p>
+
+<button onclick="next()">Open your surprise 🎁</button>
+
+<p class="small">Warning: excessive cuteness ahead 🤭</p>
+
+</div>
+
+
+<!-- SECOND PAGE -->
+<div class="page" id="p2">
+
+<h2>Welcome, Cutieee 💗</h2>
+
+<div class="card">
+
+<p>
+Somewhere between our random conversations,
+silly moments and everything in between...
+</p>
+
+<p>
+you became one of my favourite people. 🥹
+</p>
+
+<p>
+And obviously... I had to make you
+a little surprise. 🎀
+</p>
+
+</div>
+
+<button onclick="next()">Next 💕</button>
+
+</div>
+
+
+<!-- THIRD PAGE -->
+<div class="page" id="p3">
+
+<h2>Things I love about you 🤭</h2>
+
+<div class="reason">🥹 Your smile</div>
+
+<div class="reason">😂 Your stupid jokes</div>
+
+<div class="reason">🫶🏻 Our random conversations</div>
+
+<div class="reason">💕 The way you make me smile</div>
+
+<div class="reason">👀 And obviously... YOU</div>
+
+<button onclick="next()">There's more 👀</button>
+
+</div>
+
+
+<!-- FOURTH PAGE -->
+<div class="page" id="p4">
+
+<h2>A tiny letter for you 💌</h2>
+
+<div class="letter">
+
+<p>Dear Cutieee,</p>
+
+<p>
+I don't always know how to say everything I feel,
+so I thought I'd put a little bit of it here.
+</p>
+
+<p>
+Thank you for all the laughs, random conversations,
+silly moments and little memories.
+</p>
+
+<p>
+I hope you always remember that somewhere out there,
+there's an Avniee who thinks you're pretty special. 💗
+</p>
+
+<p>
+And yes... you're officially stuck with my annoying
+messages now. 😌😂
+</p>
+
+<div class="signature">
+Love,<br>
+<b>Avniee 💗</b>
+</div>
+
+</div>
+
+<button onclick="next()">One last thing... 👀</button>
+
+</div>
+
+
+<!-- FINAL PAGE -->
+<div class="page" id="p5">
+
+<div class="heart">💞</div>
+
+<h1>Okay Cutieee...</h1>
+
+<div class="card">
+
+<p>
+I made this because a normal
+"I love you" message felt too boring. 😭
+</p>
+
+<p>
+So here's your tiny digital gift,
+made by your Avniee. 🎀
+</p>
+
+<p>
+Keep smiling, okay? 🫶🏻
+</p>
+
+<h2>You're special to me. 💗</h2>
+
+</div>
+
+<p class="small">
+Made with love, chaos & a little bit of Avniee ✨
+</p>
+
+</div>
+
+
+<script>
+
+let page=1;
+
+function next(){
+
+document.getElementById("p"+page)
+.classList.remove("active");
+
+page++;
+
+document.getElementById("p"+page)
+.classList.add("active");
+
+}
+
+</script>
+
+</body>
+  </html>
