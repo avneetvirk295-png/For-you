@@ -1,252 +1,501 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Cutieee 💗</title>
+<title>For My Love 💗</title>
 
 <style>
-body{
-margin:0;
-font-family:Georgia,serif;
-background:linear-gradient(135deg,#ffe4ec,#fff5f8,#f9e6ff);
-color:#653b50;
-text-align:center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.page{
-display:none;
-min-height:100vh;
-padding:40px 22px;
-box-sizing:border-box;
-align-items:center;
-justify-content:center;
-flex-direction:column;
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #ffe5ef, #fff5f8, #f9e1ff);
+  color: #632f48;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.active{display:flex;}
-
-h1{font-size:40px;}
-h2{font-size:28px;}
-
-.card{
-background:#ffffffc9;
-padding:28px;
-border-radius:25px;
-max-width:380px;
-box-shadow:0 10px 30px #b76b851f;
-line-height:1.7;
+.page {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
 }
 
-button{
-background:#d96791;
-border:0;
-color:white;
-padding:15px 25px;
-border-radius:30px;
-font-size:16px;
-margin-top:25px;
+.page.active {
+  display: flex;
+  animation: fadeIn 1s ease;
 }
 
-.heart{
-font-size:65px;
-animation:beat 1.2s infinite;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes beat{
-50%{transform:scale(1.2);}
+h1 {
+  font-size: clamp(38px, 10vw, 65px);
+  color: #b52f62;
+  margin-bottom: 18px;
 }
 
-.reason{
-background:#ffffffc9;
-padding:17px;
-margin:8px;
-border-radius:18px;
-width:280px;
+h2 {
+  font-size: 30px;
+  color: #b52f62;
+  margin-bottom: 20px;
 }
 
-.letter{
-background:#fffafc;
-padding:28px;
-border-radius:15px;
-max-width:370px;
-text-align:left;
-line-height:1.8;
-box-shadow:0 8px 25px #9b55751f;
+p {
+  line-height: 1.8;
+  font-size: 17px;
 }
 
-.signature{
-text-align:right;
-margin-top:20px;
+button {
+  border: none;
+  background: #d94f82;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 7px 20px rgba(180,50,100,.25);
+  margin-top: 25px;
 }
 
-.small{
-opacity:.65;
-font-family:Arial;
-font-size:13px;
-margin-top:20px;
+button:active {
+  transform: scale(.95);
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 25px;
+  animation: floatUp linear infinite;
+  opacity: .75;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  20% { opacity: .8; }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Love bubbles */
+.love-grid {
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.love-card {
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(8px);
+  border-radius: 25px;
+  padding: 28px 20px;
+  box-shadow: 0 10px 30px rgba(150,50,100,.12);
+  animation: bob 3s ease-in-out infinite;
+}
+
+.love-card:nth-child(2) { animation-delay: .3s; }
+.love-card:nth-child(3) { animation-delay: .6s; }
+.love-card:nth-child(4) { animation-delay: .9s; }
+
+@keyframes bob {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.sticker {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+/* Letter cards */
+.letter-card {
+  background: rgba(255,255,255,.86);
+  max-width: 650px;
+  border-radius: 28px;
+  padding: 30px 25px;
+  box-shadow: 0 15px 45px rgba(130,40,90,.16);
+}
+
+.letter-card p {
+  font-size: 17px;
+}
+
+/* Photo */
+.photo-frame {
+  background: white;
+  padding: 12px 12px 35px;
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(90,30,70,.25);
+  transform: rotate(-2deg);
+  max-width: 90%;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 5px;
+}
+
+.photo-caption {
+  margin-top: 18px;
+  font-size: 20px;
+  font-style: italic;
+  max-width: 550px;
+}
+
+/* Final */
+.final-title {
+  font-size: clamp(35px, 9vw, 62px);
+  color: #c62f68;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.babies {
+  font-size: 65px;
+  margin: 15px;
+  animation: bob 2s infinite;
+}
+
+.confetti {
+  position: fixed;
+  width: 9px;
+  height: 14px;
+  top: -20px;
+  animation: confettiFall 3s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.small {
+  font-size: 14px;
+  opacity: .75;
+  margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- FIRST PAGE -->
-<div class="page active" id="p1">
+<!-- Floating hearts -->
+<script>
+function createHeart() {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = ["❤️","💕","💗","💖","💓","💞","✨"][Math.floor(Math.random()*7)];
+  h.style.left = Math.random()*100 + "vw";
+  h.style.animationDuration = (5 + Math.random()*5) + "s";
+  h.style.fontSize = (18 + Math.random()*18) + "px";
+  document.body.appendChild(h);
 
-<div class="heart">💗</div>
+  setTimeout(() => h.remove(), 10000);
+}
 
-<h1>Hey Cutieee...</h1>
+setInterval(createHeart, 650);
+</script>
 
-<p>Avniee made something for you 👀</p>
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+  <div style="font-size:70px;">💌</div>
 
-<p>
-It's tiny...<br>
-but it's made especially for you. 🫶🏻
-</p>
+  <h1>For my love 💓</h1>
 
-<button onclick="next()">Open your surprise 🎁</button>
+  <p>
+    A tiny little surprise made<br>
+    especially for my kuchu puchu 🥹❤️
+  </p>
 
-<p class="small">Warning: excessive cuteness ahead 🤭</p>
-
-</div>
-
-
-<!-- SECOND PAGE -->
-<div class="page" id="p2">
-
-<h2>Welcome, Cutieee 💗</h2>
-
-<div class="card">
-
-<p>
-Somewhere between our random conversations,
-silly moments and everything in between...
-</p>
-
-<p>
-you became one of my favourite people. 🥹
-</p>
-
-<p>
-And obviously... I had to make you
-a little surprise. 🎀
-</p>
-
-</div>
-
-<button onclick="next()">Next 💕</button>
-
-</div>
+  <button onclick="nextPage(2)">
+    Open your surprise 💗
+  </button>
+</section>
 
 
-<!-- THIRD PAGE -->
-<div class="page" id="p3">
+<!-- PAGE 2 -->
+<section class="page" id="page2">
 
-<h2>Things I love about you 🤭</h2>
+  <h2>Just a few things I want you to know… 🥹</h2>
 
-<div class="reason">🥹 Your smile</div>
+  <div class="love-grid">
 
-<div class="reason">😂 Your stupid jokes</div>
+    <div class="love-card">
+      <div class="sticker">🧸💕</div>
+      <p><b>You are the love of my life.</b></p>
+    </div>
 
-<div class="reason">🫶🏻 Our random conversations</div>
+    <div class="love-card">
+      <div class="sticker">🥹❤️</div>
+      <p><b>I love you so, so much.</b></p>
+    </div>
 
-<div class="reason">💕 The way you make me smile</div>
+    <div class="love-card">
+      <div class="sticker">🫂💗</div>
+      <p><b>You make my world happier.</b></p>
+    </div>
 
-<div class="reason">👀 And obviously... YOU</div>
+    <div class="love-card">
+      <div class="sticker">👶🏻💕</div>
+      <p><b>My kuchu puchu forever.</b></p>
+    </div>
 
-<button onclick="next()">There's more 👀</button>
+  </div>
 
-</div>
+  <button onclick="nextPage(3)">There's more… 💌</button>
 
-
-<!-- FOURTH PAGE -->
-<div class="page" id="p4">
-
-<h2>A tiny letter for you 💌</h2>
-
-<div class="letter">
-
-<p>Dear Cutieee,</p>
-
-<p>
-I don't always know how to say everything I feel,
-so I thought I'd put a little bit of it here.
-</p>
-
-<p>
-Thank you for all the laughs, random conversations,
-silly moments and little memories.
-</p>
-
-<p>
-I hope you always remember that somewhere out there,
-there's an Avniee who thinks you're pretty special. 💗
-</p>
-
-<p>
-And yes... you're officially stuck with my annoying
-messages now. 😌😂
-</p>
-
-<div class="signature">
-Love,<br>
-<b>Avniee 💗</b>
-</div>
-
-</div>
-
-<button onclick="next()">One last thing... 👀</button>
-
-</div>
+</section>
 
 
-<!-- FINAL PAGE -->
-<div class="page" id="p5">
+<!-- PAGE 3 -->
+<section class="page" id="page3">
 
-<div class="heart">💞</div>
+  <h2>Okay… now my little letter to you 💗</h2>
 
-<h1>Okay Cutieee...</h1>
+  <div class="letter-card">
+    <p>
+      <b>Happy Boyfriend’s Day, my love. ❤️</b>
+      <br><br>
 
-<div class="card">
+      I know mn tuhanu bht tng kardi aa, but idk what happens…
+      bs mnu hunda k tuc mere kol hi rho, mere nl nl 😭❤️
+    </p>
+  </div>
 
-<p>
-I made this because a normal
-"I love you" message felt too boring. 😭
-</p>
+  <button onclick="nextPage(4)">Next 💕</button>
 
-<p>
-So here's your tiny digital gift,
-made by your Avniee. 🎀
-</p>
+</section>
 
-<p>
-Keep smiling, okay? 🫶🏻
-</p>
 
-<h2>You're special to me. 💗</h2>
+<!-- PAGE 4 -->
+<section class="page" id="page4">
 
-</div>
+  <div class="letter-card">
 
-<p class="small">
-Made with love, chaos & a little bit of Avniee ✨
-</p>
+    <p>
+      I get jealous, and as you already know, I overthink a lot.
+      I always want to stop myself from doing it, but sometimes
+      eh mere control ch hi ni hunda.
 
-</div>
+      <br><br>
+
+      But I promise, I’ll try my best to not let my overthinking
+      and insecurities ruin our sohna jeha relationship. 🫶🏻
+    </p>
+
+  </div>
+
+  <button onclick="nextPage(5)">Next 🥹</button>
+
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+
+  <div class="letter-card">
+
+    <p>
+      Sometimes mn bhut insecure ho jni aa k tuc v mnu shdd ke na chljo,
+      and honestly, mostly ehi soch k ldayi ho jndi aa.
+
+      <br><br>
+
+      But I hope you know that it’s never because I don’t trust you
+      or don’t care about us.
+
+      <br><br>
+
+      It’s just because I care way too much and I’m scared of losing you. 🙂🫂
+    </p>
+
+  </div>
+
+  <button onclick="nextPage(6)">There's something I dream about… 💗</button>
+
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+
+  <div class="letter-card">
+
+    <p>
+      And honestly, I want us to be together even in our 40s,
+      laughing at all the stupid things we did when we were young,
+      with our little cuties running around us. 🥹💗
+
+      <br><br>
+
+      I may not say this often, but I’m genuinely so grateful
+      to have you in my life.
+
+      <br><br>
+
+      You make me happy in ways I don’t always know how to explain.
+    </p>
+
+  </div>
+
+  <button onclick="nextPage(7)">One last little thing… 🫠❤️</button>
+
+</section>
+
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+
+  <div class="letter-card">
+
+    <p>
+      So just remember…
+
+      <br><br>
+
+      I love you, I missing you so much right now,
+      and no matter how much I annoy you,
+      you’ll always be very, very special to me. 🫠❤️
+
+      <br><br>
+
+      <b>Happy Boyfriend’s Day, mere sohne. 🫶🏻</b>
+    </p>
+
+  </div>
+
+  <button onclick="nextPage(8)">One more surprise… 🎀</button>
+
+</section>
+
+
+<!-- PAGE 8 PHOTO -->
+<section class="page" id="page8">
+
+  <h2>My favourite place 🥹🫂</h2>
+
+  <div class="photo-frame">
+    <img src="WA_1791006303932.jpeg" alt="Us ❤️">
+  </div>
+
+  <p class="photo-caption">
+    “If I could choose one place to rest my head forever,
+    it would always be your shoulder.” 🫂❤️
+  </p>
+
+  <button onclick="nextPage(9)">Final surprise 💗</button>
+
+</section>
+
+
+<!-- PAGE 9 FINAL -->
+<section class="page" id="page9">
+
+  <div style="font-size:45px;">✨💗✨</div>
+
+  <h1 class="final-title">
+    You're still my<br>
+    kuchu puchu
+  </h1>
+
+  <h2>nd you'll always hv to be 💗</h2>
+
+  <div class="babies">
+    👶🏻💕 🧸💕 👶🏻
+  </div>
+
+  <h2>You’re the love of my life ❤️</h2>
+
+  <p>
+    No matter how much I annoy you…<br>
+    you're stuck with me. 🫠💗
+  </p>
+
+  <div style="font-size:40px;margin-top:20px;">
+    ❤️ 💕 💗 💖 💓
+  </div>
+
+</section>
 
 
 <script>
 
-let page=1;
+function nextPage(number) {
 
-function next(){
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
 
-document.getElementById("p"+page)
-.classList.remove("active");
+  document.getElementById("page" + number).classList.add("active");
 
-page++;
+  if(number === 9) {
+    startConfetti();
+  }
 
-document.getElementById("p"+page)
-.classList.add("active");
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function startConfetti() {
+
+  for(let i = 0; i < 100; i++) {
+
+    setTimeout(() => {
+
+      const c = document.createElement("div");
+
+      c.className = "confetti";
+
+      c.style.left = Math.random()*100 + "vw";
+
+      c.style.background =
+        ["#ff5c8a","#ffb6c9","#d86cff","#ffd166","#ff6b6b","#ffffff"]
+        [Math.floor(Math.random()*6)];
+
+      c.style.animationDuration =
+        (2 + Math.random()*3) + "s";
+
+      document.body.appendChild(c);
+
+      setTimeout(() => c.remove(), 5000);
+
+    }, i * 25);
+  }
 
 }
 
